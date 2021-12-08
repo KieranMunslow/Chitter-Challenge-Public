@@ -16,5 +16,9 @@ describe(`Tests for individual Peeps`, () => {
 
     test(`Test that the correct username rendered within the Peep`, () => {
         expect(screen.getByText(`@${testPeep.username}`)).toBeInTheDocument();
-    })
+    });
+
+    test(`Test that the correct time is rendered within the Peep`, () => {
+        expect(screen.getByText(testPeep.date)).toBeInTheDocument();
+    });
 });

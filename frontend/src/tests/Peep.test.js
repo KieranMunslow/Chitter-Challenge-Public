@@ -21,4 +21,8 @@ describe(`Tests for individual Peeps`, () => {
     test(`Test that the correct time is rendered within the Peep`, () => {
         expect(screen.getByText(`- ${testPeep.date}`)).toBeInTheDocument();
     });
+
+    test(`Test that the correct message is displayed within the Peep`, () => {
+        expect(screen.getByText(testPeep.message)).toBeInTheDocument();
+    });
 });

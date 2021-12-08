@@ -1,30 +1,30 @@
 [
     {
-        "_id": "1",
+        "id": "1",
         "name": "Bill",
         "username": "Billy1234",
-        "email": "bill@gmail.com",
-        "password": "Password1"
+        "date": "2021-05-04T15:00:00.000Z",
+        "message": "Generic sample peep 1"
     },
     {
-        "_id": "2",
+        "id": "2",
         "name": "Bob",
         "username": "Bobbob4321",
-        "email": "bob@gmail.com",
-        "password": "Password4321"
+        "date": "2021-06-07T15:00:00.000Z",
+        "message": "Another random and generic sample peep"
     },
     {
-        "_id": "3",
+        "id": "3",
         "name": "John",
         "username": "nhoJJohn",
-        "email": "john@hotmail.com",
-        "password": "wordpass"
+        "date": "2021-08-02T15:00:00.000Z",
+        "message": "osdkfpsogksdgopskgspgkosdpsogkdspgks"
     },
     {
-        "_id": "4",
+        "id": "4",
         "name": "Steve",
         "username": "StevenS987",
-        "email": "ssteven@gmail.com",
-        "password": "pword321"
+        "date": "2021-01-01T15:00:00.000Z",
+        "message": "reijtgwe9ti3w9trfiwepf"
     }
 ]

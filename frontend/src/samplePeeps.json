@@ -1,0 +1,30 @@
+[
+    {
+        "_id": "1",
+        "name": "Bill",
+        "username": "Billy1234",
+        "email": "bill@gmail.com",
+        "password": "Password1"
+    },
+    {
+        "_id": "2",
+        "name": "Bob",
+        "username": "Bobbob4321",
+        "email": "bob@gmail.com",
+        "password": "Password4321"
+    },
+    {
+        "_id": "3",
+        "name": "John",
+        "username": "nhoJJohn",
+        "email": "john@hotmail.com",
+        "password": "wordpass"
+    },
+    {
+        "_id": "4",
+        "name": "Steve",
+        "username": "StevenS987",
+        "email": "ssteven@gmail.com",
+        "password": "pword321"
+    }
+]

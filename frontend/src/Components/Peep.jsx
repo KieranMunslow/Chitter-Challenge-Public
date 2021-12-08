@@ -1,12 +1,16 @@
-const Peep = ({ peep }) => {
+import './css/Peep.css'
+import FindTime from './utils/FindTime';
 
+const Peep = ({ peep }) => {
     const { name, username, date, message } = peep;
+    const dateString = new Date(date);
+    const displayDate = FindTime(Date.now() - dateString);
 
     return (
-        <>
-            <h6>{name} <span>@{username}</span> <span>- {date}</span></h6>
-            <p>{message}</p>
-        </>
+        <div className="Peep">
+            <h2>{name} <span>@{username}</span> <span>- {displayDate}</span></h2>
+            <h4>{message}</h4>
+        </div>
     );
 };
 

@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import Peep from '../Components/Peep';
 import samplePeeps from '../samplePeeps.json';
+import FindTime from '../Components/utils/FindTime';
 
 describe(`Tests for individual Peeps`, () => {
 
@@ -19,7 +20,9 @@ describe(`Tests for individual Peeps`, () => {
     });
 
     test(`Test that the correct time is rendered within the Peep`, () => {
-        expect(screen.getByText(`- ${testPeep.date}`)).toBeInTheDocument();
+        const testCurrentDate = new Date('2021-12-08 21:00:00');
+        const time = FindTime(testCurrentDate - new Date(testPeep.date));
+        expect(screen.getByText(`- ${time}`)).toBeInTheDocument();
     });
 
     test(`Test that the correct message is displayed within the Peep`, () => {

@@ -19,6 +19,6 @@ describe(`Tests for individual Peeps`, () => {
     });
 
     test(`Test that the correct time is rendered within the Peep`, () => {
-        expect(screen.getByText(testPeep.date)).toBeInTheDocument();
+        expect(screen.getByText(`- ${testPeep.date}`)).toBeInTheDocument();
     });
 });

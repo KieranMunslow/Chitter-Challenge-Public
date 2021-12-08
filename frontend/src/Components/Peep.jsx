@@ -1,9 +1,9 @@
 const Peep = ({ peep }) => {
 
-    const { name, username, email, password } = peep;
+    const { name, username, date, message } = peep;
 
     return (
-        <h6>{name} <span>@{username}</span></h6>
+        <h6>{name} <span>@{username}</span> <span>- {date}</span></h6>
     );
 };
 

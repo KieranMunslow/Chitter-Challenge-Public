@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Peep from './Components/Peep';
+import PeepList from './Components/PeepList';
 import samplePeeps from './samplePeeps.json';
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <Peep peep={samplePeeps[0]} />
+      <PeepList peeps={samplePeeps} />
     </div>
   );
 }

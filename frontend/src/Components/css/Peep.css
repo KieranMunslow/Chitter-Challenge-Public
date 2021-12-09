@@ -3,6 +3,9 @@
     border-color: black ;
     border-width:medium;
     border-style: solid;
+    margin-bottom: 1%;
+    text-align: left;
+    text-indent: 2%;
 }
 
 h2 {

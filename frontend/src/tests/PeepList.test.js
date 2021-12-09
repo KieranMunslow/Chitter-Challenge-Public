@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import samplePeeps from '../samplePeeps.json';
+import PeepList from '../Components/PeepList';
 
 describe(`Tests for the Peep List`, () => {
 

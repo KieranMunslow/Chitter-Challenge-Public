@@ -3,6 +3,9 @@ import Peep from '../Components/Peep';
 import samplePeeps from '../samplePeeps.json';
 import FindTime from '../Components/utils/FindTime';
 
+jest.mock('../Components/utils/FindTime', () => () => `2d`);
+
+
 describe(`Tests for individual Peeps`, () => {
 
     const testPeep = samplePeeps[0];
@@ -20,9 +23,7 @@ describe(`Tests for individual Peeps`, () => {
     });
 
     test(`Test that the correct time is rendered within the Peep`, () => {
-        const testCurrentDate = new Date('2021-12-08 21:00:00');
-        const time = FindTime(testCurrentDate - new Date(testPeep.date));
-        expect(screen.getByText(`- ${time}`)).toBeInTheDocument();
+        expect(screen.getByText(`- 2d`)).toBeInTheDocument();
     });
 
     test(`Test that the correct message is displayed within the Peep`, () => {

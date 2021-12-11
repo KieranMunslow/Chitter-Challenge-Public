@@ -4,10 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PeepList from './Components/PeepList';
 import samplePeeps from './samplePeeps.json';
 import Header from './Components/Header';
+import Footer from './Components/Footer';
+
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-secondary">
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -24,6 +26,7 @@ function App() {
       </header> */}
       <Header loggedIn={false} username={"fred"} />
       <PeepList peeps={samplePeeps} />
+      <Footer />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import samplePeeps from './samplePeeps.json';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import RegisterForm from './Components/RegisterForm';
+import Login from './Components/Login';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       <PeepList peeps={samplePeeps} />
       <Footer />
       <RegisterForm />
+      <Login />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import Login from '../Components/Login';
 
 describe(`Tests for the login page`, () => {
 

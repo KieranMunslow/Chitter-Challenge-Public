@@ -27,10 +27,6 @@ describe(`Tests for the registration form`, () => {
         expect(screen.getByPlaceholderText(`Password...`)).toBeInTheDocument();
     });
 
-    test(`it should render a confirm password input and label`, () => {
-        expect(screen.getByPlaceholderText(`Confirm Password...`)).toBeInTheDocument();
-    });
-
     test(`it should render a register button`, () => {
         expect(screen.getByText(`Register`)).toBeInTheDocument();
     });

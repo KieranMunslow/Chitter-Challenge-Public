@@ -8,7 +8,7 @@ const Header = ({ loggedIn, username }) => {
         nav = (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Chitter</Navbar.Brand>
+                    <Navbar.Brand>Chitter</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
@@ -17,8 +17,8 @@ const Header = ({ loggedIn, username }) => {
                             </Navbar.Text>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">View Peeps</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
+                            <Nav.Link href="/">View Peeps</Nav.Link>
+                            <Nav.Link href="/addPeep">
                                 Add Peep
                             </Nav.Link>
                             <Nav.Link>Logout</Nav.Link>
@@ -30,16 +30,16 @@ const Header = ({ loggedIn, username }) => {
     } else {
         nav = <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">Chitter</Navbar.Brand>
+                <Navbar.Brand>Chitter</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto"></Nav>
                     <Nav>
-                        <Nav.Link href="#deets">View Peeps</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
+                        <Nav.Link href="/">View Peeps</Nav.Link>
+                        <Nav.Link href="/register">
                             Register
                         </Nav.Link>
-                        <Nav.Link>Login</Nav.Link>
+                        <Nav.Link href="/login">Login</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

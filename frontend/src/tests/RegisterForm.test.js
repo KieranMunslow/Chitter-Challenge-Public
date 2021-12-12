@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import RegisterForm from '../Components/RegisterForm';
 
 describe(`Tests for the registration form`, () => {
 
@@ -11,23 +12,23 @@ describe(`Tests for the registration form`, () => {
     });
 
     test(`it should render a surname input and label`, () => {
-        expect(screen.getByLabelText(`Surname...`)).toBeInTheDocument();
+        expect(screen.getByPlaceholderText(`Surname...`)).toBeInTheDocument();
     });
 
     test(`it should render an email input and label`, () => {
-        expect(screen.getByLabelText(`Email...`)).toBeInTheDocument();
+        expect(screen.getByPlaceholderText(`Email...`)).toBeInTheDocument();
     });
 
     test(`it should render an username input and label`, () => {
-        expect(screen.getByLabelText(`Username...`)).toBeInTheDocument();
+        expect(screen.getByPlaceholderText(`Username...`)).toBeInTheDocument();
     });
 
     test(`it should render an password input and label`, () => {
-        expect(screen.getByLabelText(`Password...`)).toBeInTheDocument();
+        expect(screen.getByPlaceholderText(`Password...`)).toBeInTheDocument();
     });
 
     test(`it should render a confirm password input and label`, () => {
-        expect(screen.getByLabelText(`Confirm Password...`)).toBeInTheDocument();
+        expect(screen.getByPlaceholderText(`Confirm Password...`)).toBeInTheDocument();
     });
 
     test(`it should render a register button`, () => {

@@ -5,6 +5,7 @@ import PeepList from './Components/PeepList';
 import samplePeeps from './samplePeeps.json';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import RegisterForm from './Components/RegisterForm';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <Header loggedIn={false} username={"fred"} />
       <PeepList peeps={samplePeeps} />
       <Footer />
+      <RegisterForm />
     </div>
   );
 }

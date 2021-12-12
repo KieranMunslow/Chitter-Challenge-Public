@@ -7,6 +7,7 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import RegisterForm from './Components/RegisterForm';
 import Login from './Components/Login';
+import AddPeep from './Components/AddPeep';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
       <Footer />
       <RegisterForm />
       <Login />
+      <AddPeep />
     </div>
   );
 }

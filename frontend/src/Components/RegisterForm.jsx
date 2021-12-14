@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Redirect } from "react-router-dom";
-import { Form, Row, Col, Button } from 'react-bootstrap';
+import { Form, Row, Col, Button, Modal } from 'react-bootstrap';
 const axios = require('axios');
 
 const RegisterForm = () => {
@@ -11,27 +11,54 @@ const RegisterForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [successfulRegister, setSuccessfulRegister] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
+    const [show, setShow] = useState(false);
+    const [validEmail, setValidEmail] = useState(false);
+    const [validUsername, setValidUsername] = useState(false);
 
-    const handleSubmit = e => {
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const handleSubmit = async e => {
         e.preventDefault();
-        axios.post(`http://localhost:4000/register`, {
-            "user": {
-                "name": {
-                    "first": firstName,
-                    "surname": surname
-                },
-                "email": email,
-                "username": username,
-                "password": password
-            }
+
+        let dupEmail = await axios.post(`http://localhost:4000/register/validateEmail`, {
+            "email": email
+        });
+
+        if (dupEmail.data.length) {
+            setModalMessage(`Email already registered`);
+            setShow(true);
+        };
+
+        let dupUser = await axios.post(`http://localhost:4000/register/validateUsername`, {
+            "username": username
         })
-            .then((response) => {
-                console.log(response);
-                setSuccessfulRegister(true);
+        if (!dupEmail.data.length && dupUser.data.length) {
+            setModalMessage(`Username already taken`);
+            setShow(true);
+        };
+        if (dupEmail.data.length + dupUser.data.length === 0) {
+            axios.post(`http://localhost:4000/register`, {
+                "user": {
+                    "name": {
+                        "first": firstName,
+                        "surname": surname
+                    },
+                    "email": email,
+                    "username": username,
+                    "password": password
+                }
             })
-            .catch(err => {
-                console.error(err)
-            });
+                .then((response) => {
+                    setSuccessfulRegister(true);
+                })
+                .catch(err => {
+                    console.log(err.response);
+                    setShow(true);
+                    setModalMessage(err.response.data);
+                });
+        }
     }
 
     return (
@@ -40,6 +67,21 @@ const RegisterForm = () => {
                 pathname: "/login",
             }}
             />}
+
+
+            <Modal show={show} onHide={handleClose} animation={false}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Invalid data</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{modalMessage}</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+
             <Form onSubmit={handleSubmit}>
 
                 <Form.Group as={Row} className="mb-3" controlId="formFirstName">

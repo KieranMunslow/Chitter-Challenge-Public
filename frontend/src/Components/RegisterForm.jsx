@@ -22,43 +22,25 @@ const RegisterForm = () => {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        let dupEmail = await axios.post(`http://localhost:4000/register/validateEmail`, {
-            "email": email
-        });
-
-        if (dupEmail.data.length) {
-            setModalMessage(`Email already registered`);
-            setShow(true);
-        };
-
-        let dupUser = await axios.post(`http://localhost:4000/register/validateUsername`, {
-            "username": username
+        axios.post(`http://localhost:4000/register`, {
+            "user": {
+                "name": {
+                    "first": firstName,
+                    "surname": surname
+                },
+                "email": email,
+                "username": username,
+                "password": password
+            }
         })
-        if (!dupEmail.data.length && dupUser.data.length) {
-            setModalMessage(`Username already taken`);
-            setShow(true);
-        };
-        if (dupEmail.data.length + dupUser.data.length === 0) {
-            axios.post(`http://localhost:4000/register`, {
-                "user": {
-                    "name": {
-                        "first": firstName,
-                        "surname": surname
-                    },
-                    "email": email,
-                    "username": username,
-                    "password": password
-                }
+            .then((response) => {
+                setSuccessfulRegister(true);
             })
-                .then((response) => {
-                    setSuccessfulRegister(true);
-                })
-                .catch(err => {
-                    console.log(err.response);
-                    setShow(true);
-                    setModalMessage(err.response.data);
-                });
-        }
+            .catch(err => {
+                console.log(err.response);
+                setShow(true);
+                setModalMessage(err.response.data);
+            });
     }
 
     return (

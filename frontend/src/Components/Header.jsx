@@ -1,8 +1,13 @@
 import { Navbar, Nav, Container, Form, FormControl, Button, FormLabel, NavDropdown } from 'react-bootstrap';
 
-const Header = ({ loggedIn, username }) => {
+const Header = ({ loggedIn, username, setLoggedIn }) => {
 
     let nav;
+
+    const handleClick = () => {
+        localStorage.removeItem(`user`);
+        setLoggedIn(false);
+    }
 
     if (loggedIn) {
         nav = (
@@ -21,7 +26,7 @@ const Header = ({ loggedIn, username }) => {
                             <Nav.Link href="/addPeep">
                                 Add Peep
                             </Nav.Link>
-                            <Nav.Link>Logout</Nav.Link>
+                            <Nav.Link onClick={handleClick}>Logout</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

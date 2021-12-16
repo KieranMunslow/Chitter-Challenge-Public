@@ -8,16 +8,28 @@ import RegisterForm from './Components/RegisterForm';
 import Login from './Components/Login';
 import AddPeep from './Components/AddPeep';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 
 function App() {
+
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [username, setUsername] = useState(``);
+
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      setLoggedIn(true);
+      setUsername(JSON.parse(localStorage.getItem("user")).validUser.username);
+    }
+  }, [])
+
   return (
     <Router>
       <div className="App bg-secondary">
-        <Header loggedIn={false} username={"fred"} />
+        <Header loggedIn={loggedIn} username={username} setLoggedIn={setLoggedIn} />
         <Switch>
           <Route exact path="/">
-            <PeepList peeps={samplePeeps} />
+            <PeepList loggedIn={loggedIn} peeps={samplePeeps} />
           </Route>
 
           <Route path="/register">
@@ -25,11 +37,11 @@ function App() {
           </Route>
 
           <Route path="/login">
-            <Login />
+            <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} setUsername={setUsername} />
           </Route>
 
           <Route path="/addPeep" >
-            <AddPeep />
+            <AddPeep loggedIn={loggedIn} />
           </Route>
         </Switch>
         <Footer />

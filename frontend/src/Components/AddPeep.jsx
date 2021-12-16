@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 const axios = require('axios');
 
-const AddPeep = () => {
+const AddPeep = loggedIn => {
 
     const [message, setMessage] = useState('');
 

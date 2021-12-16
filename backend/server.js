@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const addPeep = require('./routes/addpeep');
 const register = require('./routes/register');
+const login = require('./routes/login');
 const cors = require('cors');
 
 const port = process.env.PORT;
@@ -22,6 +23,7 @@ const main = async () => {
 main().catch(err => console.log(err));
 
 app.use(`/addPeep`, addPeep);
+app.use('/login', login);
 app.use('/register', register);
 // app.get(`/`, (req, res) => res.send(`Hello World`));
 

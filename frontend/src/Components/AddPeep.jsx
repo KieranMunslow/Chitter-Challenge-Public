@@ -9,6 +9,7 @@ const AddPeep = loggedIn => {
     const [modalMessage, setModalMessage] = useState('');
     const [show, setShow] = useState(false);
     const [redirect, setRedirect] = useState(false);
+    const [viewPeep, setViewPeep] = useState(false);
     const handleClose = () => {
         setShow(false);
         setRedirect(true);
@@ -35,6 +36,7 @@ const AddPeep = loggedIn => {
             })
                 .then((response) => {
                     console.log(response);
+                    setViewPeep(true);
                 })
                 .catch(err => {
                     console.error(err)
@@ -51,7 +53,10 @@ const AddPeep = loggedIn => {
                 pathname: "/login",
             }}
             />}
-
+            {viewPeep && <Redirect to={{
+                pathname: "/",
+            }}
+            />}
             <Modal show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Invalid data</Modal.Title>

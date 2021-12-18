@@ -5,8 +5,9 @@ const router = express.Router();
 
 router.route(`/`)
     .post((req, res) => {
-
+        console.log(req.body.peep.name);
         const peep = new Peep(req.body.peep);
+        console.log(peep);
         peep.save()
             .then(peep => {
                 res.status(200).json({ 'peep': `peep added successfully` });

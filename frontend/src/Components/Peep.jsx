@@ -7,7 +7,7 @@ const Peep = ({ peep }) => {
     const displayDate = FindTime(Date.now() - dateString);
     return (
         <div className="Peep">
-            <h2>{name.first} {name.surname}<span>@{username}</span> <span>- {displayDate}</span></h2>
+            <h2>{name.first} {name.surname}<span> @{username}</span> <span>- {displayDate}</span></h2>
             <h4>{message}</h4>
         </div>
     );
